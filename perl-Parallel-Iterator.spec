@@ -8,7 +8,7 @@
 Summary:	Parallel::Iterator - Simple parallel execution
 Name:		perl-Parallel-Iterator
 Version:	1.00
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -17,6 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/Parallel/%{pdir}-%{pnam}-%{versio
 URL:		http://search.cpan.org/dist/Parallel-Iterator/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	perl-dirs >= 2.1-19
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
