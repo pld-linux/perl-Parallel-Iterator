@@ -8,7 +8,7 @@
 Summary:	Parallel::Iterator - Simple parallel execution
 Name:		perl-Parallel-Iterator
 Version:	1.00
-Release:	2
+Release:	3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
