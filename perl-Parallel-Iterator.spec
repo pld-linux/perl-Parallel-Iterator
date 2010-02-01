@@ -15,6 +15,7 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Parallel/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	879051d329ea79f59eb4b03bb0bf7c87
 URL:		http://search.cpan.org/dist/Parallel-Iterator/
+BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-dirs >= 2.1-19
