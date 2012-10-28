@@ -6,6 +6,7 @@
 %define	pdir	Parallel
 %define	pnam	Iterator
 Summary:	Parallel::Iterator - Simple parallel execution
+Summary(pl.UTF-8):	Parallel::Iterator - proste zrównoleglenie wykonywania
 Name:		perl-Parallel-Iterator
 Version:	1.00
 Release:	3
@@ -35,9 +36,19 @@ For time consuming operations, particularly operations that spend most
 of their time waiting for I/O, this is a big performance win. It also
 provides a simple idiom to make effective use of multi CPU systems.
 
-There is, however, a considerable overhead associated with forking, so
-the example in the synopsis (doubling a list of numbers) is not a
-sensible use of this module.
+%description -l pl.UTF-8
+Funkcja map wykonuje zadane przez użytkownika przekształcenie na
+każdym elemencie listy, zwracając nową listę zawierającą
+przekształcone elementy.
+
+Ten moduł udostępnia równogległą wersję tej funkcji. Uruchamiane jest
+wiele procesów, co pozwala na jednoczesne wykonywanie wielu instancji
+funkcji przekształcenia.
+
+Dla czasochłonnych operacji, w szczególności takich, przy których
+większość to oczekiwanie na we/wy, daje to duży zysk wydajnościowy.
+Moduł także udostępnia prosty idiom, pozwalający efektywnie
+wykorzystać systemy wieloprocesorowe.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -63,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorlib}/Parallel/*.pm
-%{_mandir}/man3/*
+%{perl_vendorlib}/Parallel/Iterator.pm
+%{_mandir}/man3/Parallel::Iterator.3pm*
 %{_examplesdir}/%{name}-%{version}
