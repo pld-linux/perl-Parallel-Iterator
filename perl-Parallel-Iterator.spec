@@ -7,15 +7,14 @@
 Summary:	Parallel::Iterator - Simple parallel execution
 Summary(pl.UTF-8):	Parallel::Iterator - proste zrównoleglenie wykonywania
 Name:		perl-Parallel-Iterator
-Version:	1.00
-Release:	4
+Version:	1.002
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Parallel/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	879051d329ea79f59eb4b03bb0bf7c87
+Source0:	https://www.cpan.org/authors/id/A/AR/ARISTOTLE/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	71e5f711880f0ec115b1319d18d387a9
 URL:		http://search.cpan.org/dist/Parallel-Iterator/
-BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-dirs >= 2.1-19
@@ -53,16 +52,16 @@ wykorzystać systemy wieloprocesorowe.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
